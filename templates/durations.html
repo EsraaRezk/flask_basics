@@ -1,0 +1,43 @@
+<!-- HTML CODE FOR JINJA2: PART 1 -->
+<!-- USE WITH THE PYTHON FILE PROVIDED -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Watchable</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    </head>
+    <body>
+
+        <h1> Movies to Watch </h1>
+        <h2> This Collection Belongs to {{ name }} </h2>
+
+        <table>
+          <tr>
+            <th>movie</th>
+            <th>duration</th>
+            <th>comments</th>
+
+          </tr>
+          {% for item,length in movies.items() %}
+            <tr>
+            <td>{{ item }}</td>
+            <td>{{ length }}</td>
+            {% if length <2 %}
+            <td>Short</td>
+            {% elif length > 3 %}
+            <td style="color:red">Long</td>
+            {% else %}
+            <td>Normal</td>
+            {% endif %}
+            {% endfor %}
+            </tr>
+
+        </table>
+
+    </body>
+</html>
+ to join this conversation on GitHub. Already have an account? Sign in to comment
+© 2021 GitHub, Inc.
